@@ -1,6 +1,15 @@
 {
     "git.ignoreLimitWarning": true,
-    "cSpell.words": [
-        "leaderboard"
-    ]
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.words": ["leaderboard", "parens"],
+    "cSpell.ignorePaths": [
+        "**/src/utils",
+        "package.json",
+        "**/public",
+        "**/src/index.css"
+    ],
+    "eslint.autoFixOnSave": true
 }

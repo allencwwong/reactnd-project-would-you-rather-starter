@@ -1,0 +1,3 @@
+export const FETCH_USERS = 'FETCH_USERS'
+export const ADD_ANSWER_TO_USER = 'ADD_ANSWER_TO_USER';
+export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER';

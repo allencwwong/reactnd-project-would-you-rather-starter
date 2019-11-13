@@ -7,15 +7,9 @@ class Navigation extends React.Component {
         return (
             <Navbar bg="light">
                 <Nav>
-                    <Nav.Link>
-                        <Link to="/">Home</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to="/new-question">New Question</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to="/leaderboard">Leaderboard</Link>
-                    </Nav.Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/new-question">New Question</Link>
+                    <Link to="/leaderboard">Leaderboard</Link>
                 </Nav>
             </Navbar>
         )
