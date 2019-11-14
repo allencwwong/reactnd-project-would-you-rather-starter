@@ -2,11 +2,12 @@
     "git.ignoreLimitWarning": true,
     "editor.formatOnSave": true,
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
     },
-    "cSpell.words": ["leaderboard", "parens"],
+    "cSpell.words": ["esbenp", "leaderboard", "parens", "prettier", "vscode"],
     "cSpell.ignorePaths": [
-        "**/src/utils",
+        "**/src/utils/**",
         "package.json",
         "**/public",
         "**/src/index.css"
