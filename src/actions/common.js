@@ -1,10 +1,10 @@
-import { getInitialData } from '../utils/api';
+import { getInitData } from '../utils/api';
 import { fetchQuestions } from '../actions/questions';
 import { fetchUsers } from '../actions/users';
 
-export function handleInitialData() {
+export function handleInitData() {
     return (dispatch) => {
-        return getInitialData().then(({ users, questions }) => {
+        return getInitData().then(({ users, questions }) => {
             dispatch(fetchQuestions(questions));
             dispatch(fetchUsers(users));
         });

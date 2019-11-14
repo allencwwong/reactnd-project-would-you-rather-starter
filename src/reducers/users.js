@@ -1,6 +1,5 @@
 import {
     FETCH_USERS,
-    SET_AUTH_USER,
     ADD_ANSWER_TO_USER,
     ADD_QUESTION_TO_USER,
 } from '../actions/types';
@@ -12,8 +11,6 @@ export default function users(state = {}, action) {
                 ...state,
                 ...action.users,
             };
-        case SET_AUTH_USER:
-            return action.id;
         case ADD_QUESTION_TO_USER:
             const { id, author } = action;
 

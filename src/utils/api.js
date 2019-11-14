@@ -5,21 +5,12 @@ import {
     _saveQuestionAnswer,
 } from './_DATA';
 
-let test = (users, questions) => {
-    console.log('test');
-    return ([users, questions]) => ({
-        users,
-        questions,
-    });
-};
-
-export function getInitialData() {
+export function getInitData() {
     return Promise.all([_getUsers(), _getQuestions()]).then(
-        // ([users, questions]) => ({
-        //     users,
-        //     questions,
-        // }),
-        test([_getUsers(), _getQuestions()]),
+        ([users, questions]) => ({
+            users,
+            questions,
+        }),
     );
 }
 

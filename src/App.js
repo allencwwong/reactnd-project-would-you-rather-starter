@@ -4,17 +4,22 @@ import Main from './Pages/Main';
 import Navigation from './Components/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
-import { handleInitialData } from './actions/common';
+import { handleInitData } from './actions/common';
 import Login from './Components/Login';
 
 class App extends React.Component {
     componentDidMount() {
-        this.props.handleInitialData();
+        this.props.handleInitData();
+    }
+
+    componentDidUpdate() {
+        this.props.handleInitData();
     }
 
     render() {
-        const authUser = this.props.authUser;
+        const { authUser, users } = this.props;
         console.log(authUser);
+        console.log(users);
         return (
             <Router>
                 {authUser ? (
@@ -39,4 +44,4 @@ function mapStateToProps({ authUser }) {
     };
 }
 
-export default connect(mapStateToProps, { handleInitialData })(App);
+export default connect(mapStateToProps, { handleInitData })(App);
