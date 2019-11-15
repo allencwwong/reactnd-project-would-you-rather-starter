@@ -7,7 +7,7 @@ class LeaderBoard extends React.Component {
     render() {
         function leaderboardList(leaderboard) {
             return leaderboard.map((user) => (
-                <Row>
+                <Row key={user.id}>
                     <Col>
                         <Card>
                             <Card.Body>

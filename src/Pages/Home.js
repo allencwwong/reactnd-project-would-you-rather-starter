@@ -38,7 +38,6 @@ class Home extends React.Component {
         return (
             <Tabs defaultActiveKey="Unanswered" id="uncontrolled-tab-example">
                 <Tab eventKey="Unanswered" title="Unanswered">
-                    {/*unansweredList(userQuestions.unanswered)*/}
                     <QuestionCard
                         questionsByType={userQuestions.unanswered}
                         questionType="unanswered"
@@ -46,7 +45,8 @@ class Home extends React.Component {
                         handleSubmit={handleSubmit}
                         handleClickRadio={handleClickRadio}
                         users={users}
-                        authUser={authUser}></QuestionCard>
+                        authUser={authUser}
+                    />
                 </Tab>
                 <Tab eventKey="Answer" title="Answer">
                     <QuestionCard
@@ -54,7 +54,8 @@ class Home extends React.Component {
                         questionType="answered"
                         questions={questions}
                         users={users}
-                        authUser={authUser}></QuestionCard>
+                        authUser={authUser}
+                    />
                 </Tab>
             </Tabs>
         );

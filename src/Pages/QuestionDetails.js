@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 
 class QuestionDetails extends React.Component {
     render() {

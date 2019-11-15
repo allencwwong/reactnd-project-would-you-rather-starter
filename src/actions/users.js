@@ -18,7 +18,6 @@ export function addQuestionToUser({ id, author }) {
 }
 
 function addAnswerToUser(authUser, qid, answer) {
-    console.log('hmmm');
     return {
         type: ADD_ANSWER_TO_USER,
         authUser,

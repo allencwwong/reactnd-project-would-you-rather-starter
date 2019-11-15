@@ -7,7 +7,6 @@ import LoginUsers from './LoginUsers';
 class Login extends React.Component {
     render() {
         const { users } = this.props;
-        console.log(users);
         if (users) {
             return (
                 <Container>

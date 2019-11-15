@@ -15,7 +15,10 @@ class Main extends React.Component {
                         path="/questions/:question_id"
                         render={(props) => <QuestionDetails {...props} />}
                     />
-                    <Route path="/add" render={() => <NewQuestion />} />
+                    <Route
+                        path="/add"
+                        render={(props) => <NewQuestion {...props} />}
+                    />
                     <Route path="/leaderboard" render={() => <LeaderBoard />} />
                 </Switch>
             </div>

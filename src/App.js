@@ -17,7 +17,7 @@ class App extends React.Component {
     }
 
     render() {
-        const { authUser, users } = this.props;
+        const { authUser } = this.props;
         console.log(authUser);
         return (
             <Router>
