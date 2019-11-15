@@ -8,11 +8,10 @@ class Navigation extends React.Component {
     handleClickLogout = () => {
         console.log('logging out');
         this.props.setAuthUser(null);
-        document.location.href = '/';
     };
 
     render() {
-        console.log(this.props.authUser);
+        console.log(this.props);
         return (
             <Navbar bg="light">
                 <Nav>
@@ -20,9 +19,7 @@ class Navigation extends React.Component {
                     <Link to="/add">New Question</Link>
                     <Link to="/leaderboard">Leaderboard</Link>
                     <span>{this.props.authUser}</span>
-                    <Button onClick={() => this.handleClickLogout()}>
-                        Logout
-                    </Button>
+                    <Link onClick={() => this.handleClickLogout()}>Logout</Link>
                 </Nav>
             </Navbar>
         );

@@ -18,14 +18,15 @@ class App extends React.Component {
 
     render() {
         const { authUser } = this.props;
-        console.log(authUser);
+        console.log(this.props);
         return (
             <Router>
                 {authUser ? (
                     <div>
                         <header>
                             <Navigation
-                                authUser={this.props.authUser}></Navigation>
+                                authUser={this.props.authUser}
+                                {...this.props}></Navigation>
                         </header>
                         <Main />
                     </div>
