@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Row, Col, Card, Form, Button } from 'react-bootstrap';
+import QuestionCard from './../Components/QuestionCard';
 import { handleSaveQuestionAnswer } from '../actions/users';
 
 class Home extends React.Component {
@@ -16,101 +16,45 @@ class Home extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { authUser, handleSaveQuestionAnswer } = this.props;
-        alert('submit');
+        const { authUser } = this.props;
         let questionId = e.currentTarget.getAttribute('data-id');
-        // console.log(authUser, questionId, this.state.value);
+        console.log(authUser, questionId, this.state.value);
         if (this.state.value !== '') {
-            handleSaveQuestionAnswer(authUser, questionId, this.state.value);
+            this.props.dispatch(
+                handleSaveQuestionAnswer(
+                    authUser,
+                    questionId,
+                    this.state.value,
+                ),
+            );
         }
     };
 
     render() {
-        console.log(this.state);
-        const { userQuestions, questions, users } = this.props;
-        console.log(userQuestions);
+        const { userQuestions, questions, users, authUser } = this.props;
         let handleClickRadio = this.handleClickRadio,
             handleSubmit = this.handleSubmit;
 
-        function unansweredList(unansweredQuestions) {
-            return unansweredQuestions.map((question) => (
-                <Row key={questions[question].id}>
-                    <Col>
-                        <Card>
-                            <Card.Header>{`${
-                                users[questions[question].author].name
-                            } Asks:`}</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Would You Rather?</Card.Title>
-
-                                <Form
-                                    onSubmit={(e) => handleSubmit(e)}
-                                    data-id={question}>
-                                    <fieldset>
-                                        <Form.Group as={Row}>
-                                            <Col sm={10}>
-                                                <Form.Check
-                                                    type="radio"
-                                                    label={
-                                                        questions[question][
-                                                            'optionOne'
-                                                        ].text
-                                                    }
-                                                    name="formHorizontalRadios"
-                                                    id="formHorizontalRadios1"
-                                                    value={
-                                                        questions[question][
-                                                            'optionOne'
-                                                        ].text
-                                                    }
-                                                    onClick={(e) =>
-                                                        handleClickRadio(e)
-                                                    }
-                                                />
-                                                <Form.Check
-                                                    type="radio"
-                                                    label={
-                                                        questions[question][
-                                                            'optionTwo'
-                                                        ].text
-                                                    }
-                                                    name="formHorizontalRadios"
-                                                    id="formHorizontalRadios2"
-                                                    value={
-                                                        questions[question][
-                                                            'optionTwo'
-                                                        ].text
-                                                    }
-                                                    onClick={(e) =>
-                                                        handleClickRadio(e)
-                                                    }
-                                                />
-                                            </Col>
-                                        </Form.Group>
-                                    </fieldset>
-
-                                    <Form.Group as={Row}>
-                                        <Col>
-                                            <Button type="submit">
-                                                Submit
-                                            </Button>
-                                        </Col>
-                                    </Form.Group>
-                                </Form>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-            ));
-        }
-
         return (
-            <Tabs defaultActiveKey="Unanswer" id="uncontrolled-tab-example">
-                <Tab eventKey="Unanswer" title="Unanswer">
-                    {unansweredList(userQuestions.unanswered)}
+            <Tabs defaultActiveKey="Unanswered" id="uncontrolled-tab-example">
+                <Tab eventKey="Unanswered" title="Unanswered">
+                    {/*unansweredList(userQuestions.unanswered)*/}
+                    <QuestionCard
+                        questionsByType={userQuestions.unanswered}
+                        questionType="unanswered"
+                        questions={questions}
+                        handleSubmit={handleSubmit}
+                        handleClickRadio={handleClickRadio}
+                        users={users}
+                        authUser={authUser}></QuestionCard>
                 </Tab>
                 <Tab eventKey="Answer" title="Answer">
-                    <p>Ans</p>
+                    <QuestionCard
+                        questionsByType={userQuestions.answered}
+                        questionType="answered"
+                        questions={questions}
+                        users={users}
+                        authUser={authUser}></QuestionCard>
                 </Tab>
             </Tabs>
         );

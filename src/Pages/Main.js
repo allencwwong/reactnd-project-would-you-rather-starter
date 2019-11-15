@@ -10,16 +10,13 @@ class Main extends React.Component {
         return (
             <div className="app">
                 <Switch>
-                    <Route exact path="/" component={() => <Home />} />
+                    <Route exact path="/" render={() => <Home />} />
                     <Route
                         path="/questions/:question_id"
-                        component={() => <QuestionDetails />}
+                        render={(props) => <QuestionDetails {...props} />}
                     />
-                    <Route path="/add" component={() => <NewQuestion />} />
-                    <Route
-                        path="/leaderboard"
-                        component={() => <LeaderBoard />}
-                    />
+                    <Route path="/add" render={() => <NewQuestion />} />
+                    <Route path="/leaderboard" render={() => <LeaderBoard />} />
                 </Switch>
             </div>
         );
