@@ -17,7 +17,7 @@ class Navigation extends React.Component {
             <Navbar bg="light">
                 <Nav>
                     <Link to="/">Home</Link>
-                    <Link to="/new-question">New Question</Link>
+                    <Link to="/add">New Question</Link>
                     <Link to="/leaderboard">Leaderboard</Link>
                     <span>{this.props.authUser}</span>
                     <Button onClick={() => this.handleClickLogout()}>

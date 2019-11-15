@@ -19,7 +19,6 @@ class App extends React.Component {
     render() {
         const { authUser, users } = this.props;
         console.log(authUser);
-        console.log(users);
         return (
             <Router>
                 {authUser ? (

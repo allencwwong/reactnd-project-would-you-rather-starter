@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 class NewQuestion extends React.Component {
     render() {
-        return <div>New Question Page</div>
+        return <div>New Question Page</div>;
     }
 }
 
-export default NewQuestion
+export default NewQuestion;
